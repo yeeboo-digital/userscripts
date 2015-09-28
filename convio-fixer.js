@@ -51,9 +51,9 @@ function main() {
   
   jQ( "#fixlinks" ).click(function() {
      
-     		// Need to modify this code to detect whether these have inline styles.
+     		
      
-			var n = jQ( "#html_editorhtml_ifr" ).contents().find( "a" ).length;
+			var n = jQ( "#html_editorhtml_ifr" ).contents().find( "a:not([style])").length;
 
 			jQ( "#tamessages" ).text( "Fixed " + n + " unstyled links." );
   
@@ -74,7 +74,7 @@ function main() {
   
   			// Need to modify this code to detect whether these have inline styles.
 
-			var n = jQ( "#html_editorhtml_ifr" ).contents().find( "li" ).length;
+				var n = jQ( "#html_editorhtml_ifr" ).contents().find( "li:not([style])").length;
 
 			jQ( "#tamessages" ).text( "Fixed " + n + " unstyled list items." );
 
@@ -94,11 +94,11 @@ function main() {
 
   jQ( "#checkbroken" ).click(function() {
 
-			// Check for unstyled elements. This doesn't work currently.
+			// Check for unstyled elements. Display how many.
 	
-			var unlis = jQ( "#html_editorhtml_ifr" ).contents().find( "li [style*='regular']").length;
+			var unlis = jQ( "#html_editorhtml_ifr" ).contents().find( "li:not([style])").length;
 			
-			var unas = jQ( "#html_editorhtml_ifr" ).contents().find( "a" ).length;
+			var unas = jQ( "#html_editorhtml_ifr" ).contents().find( "a:not([style])" ).length;
 			
 			jQ( "#tamessages" ).text( "There are " + unlis + " unstyled list items. There are " + unas + " unstyled links.");
 
