@@ -41,6 +41,10 @@ function main() {
   
   jQ( "#tabuttons" ).append( "<span id='fixbullets' class='fixers'><strong>Fix bullet styles</strong></span>");
   
+  jQ( "#tabuttons" ).append( "<span id='headerimg' class='fixers'><strong>Fix header image</strong></span>");
+  
+  jQ( "#tabuttons" ).append( "<span id='previewtext' class='fixers'><strong>Fix preview text</strong></span>");
+  
   jQ(".field-hint").css({"padding": "15px 0", });
     jQ(".field-hint").css({"padding": "15px 0", });
   // Styling for custom links
@@ -78,7 +82,6 @@ function main() {
 
 			jQ( "#tamessages" ).text( "Fixed " + n + " unstyled list items." );
 
-
 		  jQ( "#html_editorhtml_ifr" ).contents().find( "li" ).css({
   
 				"margin-bottom": "1em",
@@ -95,6 +98,8 @@ function main() {
   jQ( "#checkbroken" ).click(function() {
 
 			// Check for unstyled elements. Display how many.
+			
+			
 	
 			var unlis = jQ( "#html_editorhtml_ifr" ).contents().find( "li:not([style])").length;
 			
@@ -103,6 +108,30 @@ function main() {
 			jQ( "#tamessages" ).text( "There are " + unlis + " unstyled list items. There are " + unas + " unstyled links.");
 
 
+
+});
+
+
+
+  jQ( "#headerimg" ).click(function() {
+
+     
+     // Need to write function to check for incorrect properties.
+     
+			var n = jQ( "#html_editorhtml_ifr" ).contents().find( "#leadimg:not([width='100%'])").length;
+
+			jQ( "#tamessages" ).text( "Fixed " + n + " header images." );
+  
+  // Make sure width is 100%
+  
+  jQ( "#html_editorhtml_ifr" ).contents().find( "#leadimg").attr("width","100%");
+  	
+  // Make sure height is not set. If so, remove it.
+  
+    jQ( "#html_editorhtml_ifr" ).contents().find( "#leadimg" ).removeAttr("height");
+
+  	
+  	
 
 });
 
