@@ -43,8 +43,16 @@ function main() {
   
   jQ( "#tabuttons" ).append( "<span id='headerimg' class='fixers'><strong>Fix header image</strong></span>");
   
-  jQ( "#tabuttons" ).append( "<span id='previewtext' class='fixers'><strong>Fix preview text</strong></span>");
+  jQ( "#tabuttons" ).append( "<span id='previewtext' class='fixers'><strong>Insert preview text</strong></span>");
   
+    jQ( "#tabuttons" ).append( "<strong>Preview text</strong><input type='text' id='actualpreviewtext'></input></span>");
+
+
+ jQ("#actualpreviewtext").css({"float": "left", "margin-top": "30px"; "width" : "650px";});
+
+
+    
+
   jQ(".field-hint").css({"padding": "15px 0", });
     jQ(".field-hint").css({"padding": "15px 0", });
   // Styling for custom links
@@ -99,7 +107,7 @@ function main() {
 
 			// Check for unstyled elements. Display how many.
 			
-			
+			// This needs to be updated to check for header images. Filed an issue (https://github.com/transalt/userscripts/issues/1)
 	
 			var unlis = jQ( "#html_editorhtml_ifr" ).contents().find( "li:not([style])").length;
 			
