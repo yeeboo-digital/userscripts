@@ -3,7 +3,7 @@
 // @namespace    conviowysiwygfixer
 // @author       Arthur Hanna
 // @description  This userscript fixes annoying behavior in Convio's terrible WYSIWYG.
-// @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit1*
+// @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit4*
 // @version      0.76
 // ==/UserScript==
 
@@ -43,7 +43,7 @@ function main() {
   
   jQ( "#tabuttons" ).append( "<span id='headerimg' class='fixers'><strong>Fix header image</strong></span>");
   
-  jQ( "#tabuttons" ).append( "<span id='previewtext' class='fixers'><strong>Insert preview text</strong></span>");
+  jQ( "#tabuttons" ).append( "<span id='previewbutton' class='fixers'><strong>Insert preview text</strong></span>");
   
     jQ( "#tabuttons" ).append( "<input type='text' placeholder='Preview text' name='previewtxt' id='actualpreviewtext'></input>");
 
@@ -81,6 +81,28 @@ function main() {
   		
   
 });
+
+
+
+  jQ( "#previewbutton" ).click(function() {
+
+			// Grab whatever text has been entered in the box.
+			
+			//Get
+			var bla = jQ('#actualpreviewtext').val();
+
+			//Set
+			
+			jQ( "#html_editorhtml_ifr" ).contents().find( "#previewtxt").text( bla );
+			
+			jQ( "#tamessages" ).text( "Preview text set to" + bla);
+
+
+
+});
+
+
+
 
   jQ( "#fixbullets" ).click(function() {
   
