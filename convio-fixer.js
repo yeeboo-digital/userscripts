@@ -4,7 +4,8 @@
 // @author       Arthur Hanna
 // @description  This userscript fixes annoying behavior in Convio's terrible WYSIWYG.
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit4*
-// @version      1.0
+// @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_create4*
+// @version      1.01
 // ==/UserScript==
 
 // a function that loads jQuery and calls a callback function when jQuery has finished loading
