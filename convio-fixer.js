@@ -4,7 +4,7 @@
 // @author       Arthur Hanna
 // @description  This userscript fixes annoying behavior in Convio's terrible WYSIWYG.
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit4*
-// @version      0.76
+// @version      1.0
 // ==/UserScript==
 
 // a function that loads jQuery and calls a callback function when jQuery has finished loading
@@ -45,6 +45,8 @@ function main() {
   
   jQ( "#tabuttons" ).append( "<span id='previewbutton' class='fixers'><strong>Insert preview text</strong></span>");
   
+//	jQ( "#tabuttons" ).append( "<span id='viewhtml' class='fixers'><strong>Show HTML</strong></span>");
+  
     jQ( "#tabuttons" ).append( "<input type='text' placeholder='Preview text' name='previewtxt' id='actualpreviewtext'></input>");
 
 
@@ -82,6 +84,16 @@ function main() {
   
 });
 
+// non-working "view html" function
+
+//  jQ( "#viewhtml" ).click(function() {
+
+// 	jQ( "#emailcontent" ).remove();
+  	
+//    jQ( "#tabuttons" ).append( "<textarea id='emailcontent'></textarea>");
+
+
+// });
 
 
   jQ( "#previewbutton" ).click(function() {
