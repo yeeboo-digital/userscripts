@@ -5,7 +5,7 @@
 // @description  This userscript fixes annoying behavior in Convio's terrible WYSIWYG.
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit4*
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_create4*
-// @version      1.01
+// @version      1.1
 // ==/UserScript==
 
 // a function that loads jQuery and calls a callback function when jQuery has finished loading
@@ -106,16 +106,21 @@ function main() {
 
 
 			// if special div isn't there, add it.
-			if ( jQ( "#previewtxt").length = 0 ) {
+			
+			
+	
+			
+			if ( jQ( "#html_editorhtml_ifr").contents().find("#previewtext").length == 0 ) {
 
-  				  jQ( "#html_editorhtml_ifr").contents().append( "<div style='display: none;'>" + bla + "</div>" );
+  	 jQ( "#html_editorhtml_ifr").contents().find("body").prepend( "<span id='previewtext' style='display: none !important; color: white; font-size: 1px;'></span>" );
+			
  
 				}
 			
 
 			//Set
 
-			jQ( "#html_editorhtml_ifr" ).contents().find( "#previewtxt").text( bla );
+			jQ( "#html_editorhtml_ifr" ).contents().find( "#previewtext").text( bla );
 			
 			jQ( "#tamessages" ).text( "Preview text set to" + bla);
 
