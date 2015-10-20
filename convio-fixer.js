@@ -104,8 +104,17 @@ function main() {
 			//Get
 			var bla = jQ('#actualpreviewtext').val();
 
-			//Set
+
+			// if special div isn't there, add it.
+			if ( jQ( "#previewtxt").length = 0 ) {
+
+  				  jQ( "#html_editorhtml_ifr").contents().append( "<div style='display: none;'>" + bla + "</div>" );
+ 
+				}
 			
+
+			//Set
+
 			jQ( "#html_editorhtml_ifr" ).contents().find( "#previewtxt").text( bla );
 			
 			jQ( "#tamessages" ).text( "Preview text set to" + bla);
