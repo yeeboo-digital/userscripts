@@ -5,7 +5,7 @@
 // @description  This userscript fixes annoying behavior in Convio's terrible WYSIWYG.
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_edit4*
 // @match        https://secure3.convio.net/ta/admin/CommCenter?email=em_create4*
-// @version      1.1
+// @version      1.2
 // ==/UserScript==
 
 // a function that loads jQuery and calls a callback function when jQuery has finished loading
@@ -43,12 +43,15 @@ function main() {
   jQ( "#tabuttons" ).append( "<span id='fixbullets' class='fixers'><strong>Fix bullet styles</strong></span>");
   
   jQ( "#tabuttons" ).append( "<span id='headerimg' class='fixers'><strong>Fix header image</strong></span>");
-  
+
+  jQ( "#tabuttons" ).append( "<span id='getprev' class='fixers'><strong>Find preview text</strong></span>");
+
   jQ( "#tabuttons" ).append( "<span id='previewbutton' class='fixers'><strong>Insert preview text</strong></span>");
   
 //	jQ( "#tabuttons" ).append( "<span id='viewhtml' class='fixers'><strong>Show HTML</strong></span>");
   
-    jQ( "#tabuttons" ).append( "<input type='text' placeholder='Preview text' name='previewtxt' id='actualpreviewtext'></input>");
+    jQ( "#tabuttons" ).append( "<input type='text' name='prevtext' placeholder='Preview text' id='actualpreviewtext'></input>");
+
 
 
  jQ("#actualpreviewtext").css({"float": "left", "margin-top": "30px", "width" : "650px"});
@@ -61,6 +64,12 @@ function main() {
   // Styling for custom links
   
   jQ(".fixers").css({"margin-right": "15px", "border": "2px solid #ccc", "padding": "3px", "border-radius": "3px"});
+  
+  
+  // GRAB PREVIEW TEXT FROM EMAIL IF IT EXISTS, ADD TO PREVIEW TEXT BOX - this does not work
+	
+	jQ( "#html_editorhtml_ifr").contents().find("#previewtext")
+
   
   // Let's fix the links onclick
   
@@ -97,18 +106,39 @@ function main() {
 // });
 
 
+
+
+function explode(){
+
+   		 var textis = jQ( "#html_editorhtml_ifr").contents().find("#previewtext").text();
+ 		 jQ('#actualpreviewtext').val(textis);
+ 		 
+}
+
+setTimeout(explode, 2000);
+
+
+  jQ( "#getprev" ).click(function() {
+  
+ 		 var textis = jQ( "#html_editorhtml_ifr").contents().find("#previewtext").text();
+  
+  
+ 		 jQ('#actualpreviewtext').val(textis);
+
+  
+  });
+  
+  
+
   jQ( "#previewbutton" ).click(function() {
 
 			// Grab whatever text has been entered in the box.
 			
-			//Get
 			var bla = jQ('#actualpreviewtext').val();
 
 
+			
 			// if special div isn't there, add it.
-			
-			
-	
 			
 			if ( jQ( "#html_editorhtml_ifr").contents().find("#previewtext").length == 0 ) {
 
@@ -122,7 +152,7 @@ function main() {
 
 			jQ( "#html_editorhtml_ifr" ).contents().find( "#previewtext").text( bla );
 			
-			jQ( "#tamessages" ).text( "Preview text set to" + bla);
+			jQ( "#tamessages" ).text( "Preview text set to " + bla);
 
 
 
