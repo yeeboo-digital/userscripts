@@ -1,0 +1,1717 @@
+<!-- PASTE THIS FILE INTO AN HTML CAPTION AT THE TOP OF A DONATION FORM -->
+
+<!-- JAVASCRIPT NECESSARY FOR THE LIGHTBOX -->
+
+      <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+      <script type='text/javascript' src="https://secure3.convio.net/lcv/js/jquery.easing.1.3.js"></script>
+      <script type='text/javascript' src="https://secure3.convio.net/lcv/js/jquery.cycle.all.min.js"></script>
+
+
+<script>
+   // This snippet adds the necessary tags to the donation amounts to allow the script to calculate the correct recurring amounts for the lightbox.
+
+  Y.use("jquery-ui", function(Y) {
+      jQuery( ".donation-level-label-input-container input" ).addClass( "DonationLevelRadio" );
+      jQuery( ".donation-level-input-container label" ).addClass( "RadioGroupLabel" );
+      jQuery( ".donation-level-user-entered input" ).addClass( "DonationLevelOtherAmount" );
+});
+</script>
+
+
+  
+  <style type='text/css'>
+
+	.RadioGroupLabel
+	{
+		float: none !important;
+		display: inline !important;
+	}
+
+	#lb_wrapper a
+	{
+		text-decoration: none;
+		color: #fff;
+	}
+
+	#lb_wrapper
+	{
+		width: 522px;
+		overflow: hidden;
+		position: relative;
+		font: 11px/15px Arial, Helvetica, sans-serif;
+		color: #000;
+		background: #fff;
+	}
+	#lb_wrapper .lb_box:after
+	{
+		content: "";
+		clear: both;
+		display: block;
+	}
+	#lb_wrapper .lb_box
+	{
+		width: 345px;
+		min-height: 158px;
+		padding: 25px 94px 0 28px;
+	}
+	#lb_wrapper .btn-lb_close
+	{
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		width: 14px;
+		height: 11px;
+		overflow: hidden;
+		text-indent: -9999px;
+		background: url(https://secure3.convio.net/lcv/images/content/pagebuilder/11609.jpg) no-repeat;
+	}
+
+	#lb_wrapper {
+		max-width: 320px;
+		border: 2px solid #EEEEEE;
+		border-radius: 8px 8px 8px 8px;
+		text-align: left; padding: 20px;
+	}
+
+	#lb_wrapper p
+	{
+		margin: 0;
+		line-height: 22px;
+	}
+	
+	.bluebutton {
+		width: 200px; 
+		background: #3366CC;  
+		border: 1px solid #99CCFF; 
+		border-radius: 4px 4px 4px 4px; 
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#6699FF), to(#3366CC));  
+		margin-bottom: 10px !important; 
+		font-family: 'BryantWebBold', Helvetica, Arial, sans-serif;
+		text-transform: uppercase; 
+		font-size: 20px; 
+		margin: 5px auto;
+		text-align: center;
+		}
+
+	#killit {
+		background: none;
+		color: #fff;
+	    margin: 16px auto;
+		background-color: #F15D22;
+		border-radius: 10px;
+		padding: 3px 10px;
+	}
+
+	#killit:hover {
+	    margin: 16px auto;
+		background-color: #fc8c5f;
+	}
+
+	.bluebutton a {
+		padding: 5px;
+		display:block;
+
+	}
+	
+	.bluebutton a:hover {
+		display:block;
+		background: #8DA9E2; 
+		opacity: 0.9;
+		filter: alpha(opacity=100); /* For IE8 and earlier */
+
+	}
+
+	.bluebutton p {
+		color: white !important;
+		font-size: 20px;
+	}
+
+	.buttonsubtext {
+		font-size: 14px; 
+		line-height: 16px;
+		font-family: 'BryantWebMedium', Helvetica, Arial, sans-serif;
+		text-transform: none;
+		color: white !important;
+		}
+
+	.lb_title {
+		font-size: 24px;
+		line-height: 26px !important;
+		font-family: 'BryantWebBold', Helvetica, Arial, sans-serif;
+		margin-bottom: 15px !important;
+		}
+
+	.lb_description p {
+		font-size: 18px;
+		line-height: 22px;
+		font-family: 'BryantWebRegular', Helvetica, Arial, sans-serif;
+		color: black;
+		}
+		
+	.lb_description {
+		margin-bottom: 15px;
+	}
+	
+	#lb_wrapper hr {
+		padding: 0px;
+		margin: 5px;
+		}
+
+	#lb_wrapper .lb_top
+	{
+		height: 1%;
+		overflow: hidden;
+		padding: 10px 0 0 2px;
+	}
+	#lb_wrapper .lb_box p
+	{
+		margin: 0 0 11px;
+		font-family: 'BryantWebBold', Helvetica, Arial, sans-serif;
+	}
+	#lb_wrapper .lb_box p span
+	{
+		color: #568B55;
+		font-family: 'BryantWebBold', Helvetica, Arial, sans-serif;
+	}
+	#lb_wrapper .lb_info
+	{
+		overflow: hidden;
+		width: 100%;
+		padding: 0 0 5px;
+	}
+	
+	#lb_wrapper .lb_container
+	{
+		width: 462px;
+		overflow: hidden;
+		padding: 4px 30px 0 14px;
+	}
+
+
+
+  </style>
+
+
+
+
+<script type='text/javascript'>//<![CDATA[ 
+window.onload=function(){
+	function placeholderText(elm)
+	{
+	
+			// Arthur's function for adding required classes for error checking 
+			
+		$( "#billing_first_namename, #billing_last_namename, #billing_addr_street1name, #billing_addr_cityname, #billing_addr_state, #billing_addr_zipname, #donor_email_addressname, #donor_first_namename, #donor_last_namename, #donor_addr_street1name, #donor_addr_cityname, #donor_addr_state, #donor_addr_zipname, #responsive_payment_typecc_numbername, #responsive_payment_typecc_cvvname").addClass( "tarequired" );
+		
+		
+		// Get the label whose "for" matches the element's id:
+		var ret = "";
+		
+		if ($("label[for=\"" + $(elm).attr("id") + "\"] span.FormLabelText").length > 0)
+			ret = $("label[for=\"" + $(elm).attr("id") + "\"] span.FormLabelText").html().replace(/\:/g, "");
+		
+		// Determine whether or not field is required, and show asterisk based on that
+		if (/\*/.test($("label[for=\"" + $(elm).attr("id") + "\"]").parents(".FormLabel").prev(".requiredIndicator").html()))
+			ret = ret + "*";
+		
+		// Adjust placeholder:
+		ret = ret.replace(/(<span[^<]+<\/span>)/gi, "");
+		ret = ret.replace(/expiration date/gi, "Expiration Month");
+		
+		if (/YEAR/g.test($(elm).attr("id")))
+			ret = "Expiration Year" + ret;
+
+		return ret;
+	}
+	
+	function validEmail(str)
+	{
+		return (/^([\w\-\+]+)(\.[\w\-\+]+)*@([\w\-]+)(\.[\w\-]+)+$/.test(str));
+	}
+	
+	function wsSimpleDialog(title, text, button)
+	{
+		var bgElement = document.createElement("div");
+		bgElement.id = "d" + parseInt(Math.random() * 100000);
+		bgElement.style.position = "fixed";
+		try
+		{
+			bgElement.style.backgroundColor = "rgba(110, 110, 110, 0.6)";
+		}
+		catch(e)
+		{
+			bgElement.style.backgroundColor = "#666666"; // Fall back for IE
+			bgElement.style.filter = "alpha(opacity=60)";
+		}
+		bgElement.style.top = "0px";
+		bgElement.style.left = "0px";
+		bgElement.style.bottom = "0px";
+		bgElement.style.right = "0px";
+		bgElement.style.zIndex = "20000";
+		document.body.appendChild(bgElement);
+
+		msgElement = document.createElement("span");
+		msgElement.style.display = "block";
+		msgElement.style.zIndex = "20001";
+		msgElement.id = "m" + bgElement.id
+		msgElement.style.position = "fixed";
+		msgElement.style.border = "1px solid #888";
+		msgElement.style.borderRadius = "4px";
+		msgElement.style.backgroundColor = "#fff";
+		msgElement.style.color = "#444";
+		msgElement.style.textShadow = "none";
+		msgElement.style.padding = "16px";
+		msgElement.style.fontFamily = "BryantWebMedium";
+		msgElement.style.fontSize = "16px";
+		msgElement.style.lineHeight = "19px";
+		msgElement.innerHTML = "<" + "strong style=\"display: block; text-align: center; font-size: 19px; color: #cc0000\">" + title + "<" + "/strong>" + text + "<" + "button id=\"killit\" style=\"color: #fff; text-align: center; border: none; display: block; margin-top: 16px; font-family: BryantWebMedium; font-size: 19px; line-height: 24px; cursor: pointer;\"  onclick=\"return wsCloseSimpleDialog('" + bgElement.id + "')\">" + button + "<" + "/a>";
+		document.body.appendChild(msgElement);
+		msgElement.style.marginTop = (-1 * msgElement.offsetHeight / 2) + "px";
+		msgElement.style.top = "50%";
+		msgElement.style.marginLeft = (-1 * msgElement.offsetWidth / 2) + "px";
+		msgElement.style.left = "50%";
+		
+	  // 	Arthur's function to kill the error popup rather than reloading the page
+		
+			$( "#killit" ).click(function() {
+			wsCloseSimpleDialog(bgElement.id);
+			});
+
+		// Always make sure it's visible on Mobile:
+		if (/Mobile/.test(navigator.userAgent))
+		{
+			bgElement.scrollIntoView();
+			bgElement.style.minHeight = document.body.offsetHeight + "px";
+		}
+
+		if (window.innerHeight < msgElement.offsetHeight)
+		{
+			msgElement.style.position = "absolute";
+			msgElement.style.top = "0";
+			msgElement.style.marginTop = "0";
+			msgElement.scrollIntoView();
+		}
+
+		// Escape key will close dialog:
+		document.onkeyup = function(e)
+		{
+			e = e || window.event;
+
+			if (e.keyCode == 27)
+				wsCloseSimpleDialog(bgElement.id);
+		};
+	}
+
+	function wsCloseSimpleDialog(dialogId)
+	{
+		document.body.removeChild(document.getElementById(dialogId));
+		document.body.removeChild(document.getElementById("m" + dialogId));
+		return false;
+	}
+	
+	// Add commas to a number. Credits to Steven Levithan (http://blog.stevenlevithan.com/archives/commafy-numbers)
+	String.prototype.commafy = function()
+	{
+		return this.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2)
+		{
+			return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+		});
+	}
+
+	Number.prototype.commafy = function()
+	{
+		return String(this).commafy();
+	}
+	
+	function formValidator()
+	{
+
+		// Arthur's code below prevents multiple ErrorMessage divs from stacking up. Each time it's checked, the form deletes all ErrorMessages then appends more if needed.
+
+		// Workaround for "billing address" being flagged as empty when it isn't.
+		
+		if ($('#billing_info_same_as_donorname').attr('checked')) {
+
+  $('input[name="billing_first_namename"]').val($('input[name="donor_first_namename"]').val());
+$('input[name="billing_last_namename"]').val($('input[name="donor_last_namename"]').val());
+$('input[name="billing_addr_street1name"]').val($('input[name="donor_addr_street1name"]').val());
+$('input[name="billing_addr_street2name"]').val($('input[name="donor_addr_street2name"]').val());
+$('input[name="billing_addr_cityname"]').val($('input[name="donor_addr_cityname"]').val());
+$('#billing_addr_state').val($('#donor_addr_state').val());
+$('input[name="billing_addr_zipname"]').val($('input[name="donor_addr_zipname"]').val());
+
+
+    }
+
+
+
+		$("div.ErrorMessage").remove();
+		$( "div" ).removeClass( "form-error" )
+
+
+		
+
+		// Check for errors:
+		var errorStr = "";
+		
+
+	
+		// Arthur's script to make sure user has selected a premium.
+	
+	
+
+		  if ($("#premium_selector_premiumSelect").val() == '-1') {
+						$("#premium_selector_row").prepend( "<div class='ErrorMessage'>Please choose a gift.</div>" );
+						$("#premium_selector_row").addClass('form-error');
+						errorStr += "<br>- Please choose a gift.";
+				}
+			
+
+
+		
+		// Go through the donation levels:
+		if ($(".donation-level-label-input-container input:radio:checked").length == 0)
+		{
+			errorStr += "<br>- Select a gift amount.";
+		}
+		else if ($("#" + $(".donation-level-label-input-container input:radio:checked").attr("id") + "amount").length > 0)
+		{
+			var donValue = $("#" + $(".donation-level-label-input-container input:radio:checked").attr("id") + "amount").val();
+			donValue = donValue.replace(/\$/g, "");
+			// Validate the donation amount
+			if (isNaN(donValue) || donValue < 5)
+				errorStr += "<br>- Your gift amount must be at least $5.";
+		}
+
+
+		// Go through the form fields:
+
+		// Arthur's code to only error check fields with the tarequired class.
+		
+		
+		$(".tarequired").each(function()
+		{
+
+
+			if ( $(this).val() ) ;
+			
+			{
+				$(this).focus();
+				// It's required, so validate it:
+				if (/email/gi.test($(this).attr("id")) && !validEmail($(this).val()))
+				{
+					errorStr += "<br>- A valid email address is required.";
+				}
+				else if ($(this).val().replace(/\s*/g, "") == "")
+				{
+				
+	 //Arthur's function to get the label text and print it out in the error message.
+
+		var $label = $("label[for='"+this.id+"']")
+	   	
+		errorStr += "<br>- " + ($label.text().replace(':','')) + " is required.";
+
+			// Arthur's code to add the form-error class inline to all blank required fields.
+			$(this.parentNode).addClass('form-error'); 
+$(this.parentNode).closest(".form-error").prepend( "<div class='ErrorMessage'>This field is required.</div>" );
+				}
+
+				$(this).blur();
+			}
+			
+			
+
+		});
+		
+		
+        // IMPORTANT For development I changed the logic here to continue if there are errors. This should be changed to if (errorStr != "") for production.
+        
+		if (errorStr != "")
+		{
+			// Show error popup. But first, scroll to the top of the page.
+			
+			$(document.body).animate({
+					'scrollTop':   $('.form-error').offset().top
+			}, 1000);
+			
+			
+			wsSimpleDialog("Please correct the following:", errorStr, "OK");
+
+			
+			
+			// Cancel submission:
+			return false;
+		}
+		else if ("" == "off")
+		{
+			prepareDonationFormForSubmission();
+			
+			// Process submission:
+			return true;
+		}
+		
+		// Arthur's code to see whether we're already monthly. If so, don't show the lightbox.
+		
+		else if ($('#level_standardauto_repeatname').is(":checked"))
+		{
+			prepareDonationFormForSubmission();
+			
+			// Process submission:
+			return true;
+		}
+		
+		
+		
+		else
+		{
+			// Show the lightbox!
+			wsShowLightbox(prepareDonationFormForSubmission);
+			
+			// Cancel submission:
+			return false;
+		}
+	}
+	
+	// Function clears out placeholder text from fields:
+	function prepareDonationFormForSubmission()
+	{
+		// Clear placeholder from fields:
+		$("#ProcessForm input:text").each(function()
+		{
+			// Don't focus the other amount field, or the radio button for the donation level will switch to it!
+			if ($(this).attr("class") != "DonationLevelOtherAmount")
+				$(this).focus();
+		});
+		// And remove focus from that last text field so that blur doesn't get called:
+		$("#pstep_finish").focus();
+	}
+	
+	function getParameter(param)
+	{
+		var regex = new RegExp("[\\?&]" + param.replace(/\[/,"\\\[").replace(/\]/,"\\\]") + "=([^&#]*)");
+		var result = regex.exec(window.location.href);
+		return (result == null) ? "" : result[1];
+	}
+	
+	// A Convio script tampers with noConflict. Firefox is OK, but Chrome and IE need this to set things right:
+	$ = jQuery.noConflict(true);
+	
+	$(document).ready(function()
+	{
+		// If we're on a thank you page, bail!
+		if ($("#ProcessForm").length == 0)
+			return;
+		
+		// Setup donation levels header:
+		$("tbody[id*=level] tr:first").before("<tr><td id=\"donationlevelheadertext\" colspan=\"4\">" + $("tbody[id*=level] td.FormInput fieldset:first legend").text().replace(/\:/gi, "*") + "</td></tr>");
+
+		// Setup credit card type label:
+		$("tr#payment_typecc_type_Row fieldset:first table td:first").before("<td id=\"paymenttypeheadertext\">" + $("tr#payment_typecc_type_Row fieldset:first legend").text() + "</td>");
+
+		// Position the 2nd column correctly:
+		$("tbody[id*=\"level\"]").css("marginTop", function()
+		{
+			return (-1 * ($(this).offset().top - $(".donation-form-container input:text:first").offset().top)) + "px";
+		});
+
+		$("tbody[id*=\"payment\"]").each(function()
+		{
+			$(this).css("marginTop", function()
+			{
+				return ((-1 * ($(this).offset().top - $(".donation-form-container input:text:first").offset().top)) + $(this).prev().height()) + "px";
+			});
+		});
+
+		// Fix up Convio sloppyness with missing value="" in option tags:
+		$("#ProcessForm select option").each(function()
+		{
+			if (!$(this).attr("value"))
+			{
+				$(this).attr("value", "");
+			}
+		});
+		
+		// Setup room for Expiration Date and Month placeholder:
+		$("#payment_typecc_exp_date_MONTH").find("option:first").before("<option value=\"\"></option>");
+		$("#payment_typecc_exp_date_YEAR").find("option:first").before("<option value=\"\"></option>");
+
+		// Setup placeholder inside form fields:
+		$("#ProcessForm input:text").focus(function()
+		{
+			// Clear placeholder when focussed:
+			if ($(this).val() == placeholderText($(this)))
+			{
+				$(this).val("");
+				$(this).css("color", "#000000");
+			}
+		}).blur(function()
+		{
+			// Re-show if empty when focus is lost:
+			if ($(this).val() == "")
+			{
+				$(this).val(placeholderText($(this)));
+				$(this).css("color", "#666666");
+			}
+		}).each(function()
+		{
+			// Initial setup (calling blur makes sure we won't overwrite autologin values)
+			if ($(this).attr("class") != "DonationLevelOtherAmount"){
+				$(this).focus();
+				$(this).blur();
+			}
+		});
+
+    	// Setup select option placeholder:
+    	$(".donation-form-container select > option:first-child").each(function()
+    	{			
+   			//if (!/payment/gi.test($(this).parents("select").attr("id")))
+    		$(this).text(placeholderText($("#" + $(this).parents("select").attr("id"))));
+    	});
+
+		// Actually, whether or not we're autologged in:
+		// so not: if ($("#donor_email_addressname").val() == placeholderText($("#donor_email_addressname")))
+		// But, if we're here due to a donation error, then don't:
+		if ($("#payment_typecc_numbername").val() == placeholderText($("#payment_typecc_numbername")))
+		{
+			$("#payment_typecc_exp_date_MONTH").val("");
+			$("#payment_typecc_exp_date_YEAR").val("");
+		}
+		
+		// And set up the color changing part of the select option placeholder:
+    	$(".donation-form-container select").focus(function()
+		{
+			$(this).css("color", "#000000");
+		}).blur(function()
+		{
+			if ($(this).val() == "")
+			{
+				$(this).css("color", "#666666");
+			}
+		}).each(function()
+		{
+			$(this).focus();
+			$(this).blur();
+		});
+				
+		// This makes no cents... remove cents from donation amounts:
+		$("label[for*=level]").html(function()
+		{
+			return $(this).html().replace(/\.00/g, "");
+		});
+		
+		// If amount was passed to donation form, select it:
+		var donAmount = getParameter("amount");
+		if (donAmount != "")
+		{
+			var wsRadioLabels = document.getElementsByTagName("label");
+
+			for (var i = 0; i < wsRadioLabels.length; i++)
+			{
+				if (wsRadioLabels[i].className == "RadioGroupLabel" && /compact/i.test(wsRadioLabels[i].htmlFor))
+				{
+					var wsAmtRes = wsRadioLabels[i].innerHTML.replace(/,/g, "").match(/\$(\d+)/);
+
+					if (wsAmtRes && wsAmtRes.length > 1)
+					{
+						// If dollar amount matches, check that radio button
+						if (wsAmtRes[1] == donAmount)
+						{
+							document.getElementById(wsRadioLabels[i].htmlFor).checked = true;
+							break;							
+						}
+					}
+					else
+					{
+						// It's the user-entered one, so we haven't found a better one:
+						document.getElementById(wsRadioLabels[i].htmlFor).checked = true;
+						document.getElementById(wsRadioLabels[i].htmlFor + "amount").value = donAmount;
+					}
+				}
+			}
+		}
+				
+		// As we focus inputs, page will scroll down -- correct for that:
+		if (window.location.hash == "" || window.location.hash == "#")
+		{
+			window.scrollTo(0, 0);
+		}
+		else
+		{
+			if ($(window.location.hash).length > 0)
+				window.scrollTo(0, $(window.location.hash).offset().top);
+		}
+
+		// Setup form error-checking, and clear fields on form submit
+		window.setTimeout(function()
+		{
+			// Remove any other script's hold on this form submission:
+			document.getElementById("ProcessForm").onsubmit = function() { };
+			$("#ProcessForm").unbind("submit");
+			
+			// And add us:
+			$("#ProcessForm").submit(formValidator);
+		}, 50);
+	});
+	
+
+
+
+
+	/*
+	 * Sets up and shows the monthly ask dialog. Check for form errors prior to calling this.
+	 */
+	function wsShowLightbox(onCloseLightboxFunction)
+	{
+		// Setup lightbox:
+		var lb = '';
+		var lb = '';
+lb += '<div id="lb_wrapper">';
+lb += '<p class="lb_title">Your support fuels Transportation Alternatives!';
+lb += '<div class="lb_description">';
+lb += '<p>We are rarely so bold, but with the clock ticking for this dollar-for-dollar matching gift challenge we need to ask: </p> <br/>';
+lb += '<p><strong><em>Will you consider stretching your gift?</em></strong></p>';
+lb += '</div>';
+lb += '<div class="buttoncontainer">';
+lb += '<div class="bluebutton"><a href="#" class="ws_monthly_donation ws_dialog_close_button"><p>YES, I&#39;LL ADD $%amount_monthly%<hr>';
+lb += '<span class="buttonsubtext">I support NYC&#8217;s safe streets movement 100%</span></p></a>';
+lb += '</div>';
+lb += '<div class="bluebutton"><a href="#" class="ws_onetime_donation ws_dialog_close_button"><p>NO, THANKS<hr>';
+lb += '<span class="buttonsubtext">Just process my one-time gift of $%amount%.</span></p></a>';
+lb += '</div>';
+lb += '</div>';
+lb += '</div>';
+		
+		// Don't show if we're already monthly; this will depend on what type of form we have:
+		if ((document.getElementById("level_flexiblegift_type2") && document.getElementById("level_flexiblegift_type2").checked == true)
+		  || (document.getElementById("level_standardauto_repeatname") && document.getElementById("level_standardauto_repeatname").checked == true))
+		{
+			onCloseLightboxFunction();
+			wsProcessDonation();
+			return;
+		}
+	
+		// Find current wsAmount for page
+		var wsInputs = document.getElementsByTagName("input");
+		var wsFor = document.getElementsByTagName("label");
+		var lbAmount = 0;
+
+		// Loop through and find selected amount for this particular page
+		for (var i = 0; i < wsInputs.length; i++)
+		{
+			if (wsInputs[i].className == "DonationLevelRadio" && wsInputs[i].checked && !document.getElementById(wsInputs[i].id + "amount"))
+			{
+				for (var j = 0; j < wsFor.length; j++)
+				{
+					if (wsFor[j].htmlFor == wsInputs[i].id && wsFor[j].className == "RadioGroupLabel")
+					{
+						// We have found the amount that this radio button is worth:
+						if (/\d+\.?\d*/g.test(wsFor[j].innerHTML))
+						{
+							lbAmount = wsFor[j].innerHTML.replace(/,/g, "").match(/(\d+\.?\d*)/g)[0];
+						}
+					}
+				}
+			}
+			else if (wsInputs[i].className == "DonationLevelOtherAmount")
+			{
+				var radioButtonForOtherAmount = document.getElementById(wsInputs[i].id.replace(/amount$/gi, ""));
+				if (radioButtonForOtherAmount && radioButtonForOtherAmount.checked)
+				{
+					// Then they have selected the other field
+					var testlbAmount = parseFloat(wsInputs[i].value.replace(/[\$,\s]/gi, ""));
+
+					if (!isNaN(testlbAmount))
+						lbAmount = testlbAmount;
+				}
+
+				// And save this element to variable for use later:
+				window.otherAmountField = wsInputs[i];
+			}
+		}
+
+		window.monthlyAmount = getUpsellValueFor(lbAmount);
+		window.originalAmount = lbAmount;
+		
+		// Don't show if donation amount is too high > 1000
+		if (window.monthlyAmount == -1)
+		{
+			onCloseLightboxFunction();
+			wsProcessDonation();
+			return;
+		}
+
+		// Search and replace lb strings with amounts:
+		lb = lb.replace(/\%amount\%/gi, lbAmount).replace(/\%amount_monthly\%/gi, window.monthlyAmount);
+
+		// Show lightbox:
+		(new ws.Dialog()).ShowHTML(lb, 365, 485, function(elm)
+		{
+			onCloseLightboxFunction();
+			wsMadeChoice(elm);
+		}, '#000000');
+	
+		//// Set analytics that we showed it:
+		
+			_gaq.push(['_trackEvent', 'lightbox' + document.getElementById("df_id").value, 'shown']);
+	}
+	
+	/*
+	 * Compute upsell value
+	 */
+	function getUpsellValueFor(onetime_value)
+	{
+		var sustainer_value = -1;
+		
+		if (onetime_value <= 0)
+			sustainer_value = -1;
+		else if (onetime_value < 49)
+			sustainer_value = 5;
+		else if (onetime_value < 99)
+			sustainer_value = 10;
+		else if (onetime_value < 149)
+			sustainer_value = 15;
+		else if (onetime_value < 249)
+			sustainer_value = 25;
+		else if (onetime_value < 499)
+			sustainer_value = 50;
+		else if (onetime_value < 1000)
+			sustainer_value = 100;
+		else if (onetime_value > 1000)
+			sustainer_value = 250;
+		
+		return sustainer_value;
+	}
+
+	/*
+	 * The user has selected an option on the dialog
+	 */
+	function wsMadeChoice(elm)
+	{
+		// Remember to give monthly selection A tags in the lightbox this className:
+		if (elm.className && /ws_monthly_donation/gi.test(elm.className))
+		{
+			// This will depend on what type of form we have:
+			if (document.getElementById("level_flexiblegift_type2"))
+			{
+				document.getElementById("level_flexiblegift_type2").checked = true;
+				fire_obs_comp_event('level_flexiblegift_type', document.getElementById("level_flexiblegift_type2"));
+			
+				document.getElementById("level_flexibleduration").value = "M:0"; // Set recurring to forever
+			}
+			else if (document.getElementById("level_standardauto_repeatname"))
+			{
+				document.getElementById("level_standardauto_repeatname").checked = true;
+			}
+
+		
+		
+		// Check the other radio button:
+
+	document.getElementById(window.otherAmountField.name.replace("amount", "")).checked = true;
+		
+		// And enter the corresponding amount in the other-amount field
+
+		window.totalAmount = parseFloat(window.monthlyAmount) + parseFloat(window.originalAmount) ;
+
+	window.otherAmountField.value = window.totalAmount;
+			
+	
+			// Then, enter the existing donation in the "Additional Amount" field.
+			
+			// document.getElementById('additional_amountname').value = window.monthlyAmount;
+			
+
+					
+			//// Set analytics that we upsold:
+
+				_gaq.push(['_trackEvent', 'lightbox' + document.getElementById("df_id").value, 'upsold' + window.monthlyAmount]);
+		}
+		else
+		{
+		// Set analytics that we stayed onetime:
+	
+			_gaq.push(['_trackEvent', 'lightbox' + document.getElementById("df_id").value, 'noupsell']);
+		}
+	
+		// Process the donation -- either way they picked!
+		wsProcessDonation();
+	}
+	
+	function wsProcessDonation()
+	{		
+		// Create hidden element so it appears that we clicked submit button:
+		var hiddenElm = document.createElement("input");
+		hiddenElm.type = "hidden";
+		hiddenElm.value = document.getElementById("pstep_finish").value;
+		hiddenElm.name = "pstep_finish";
+		document.getElementById("ProcessForm").appendChild(hiddenElm);
+		
+		document.getElementById("ProcessForm").submit();  // IE9 doesn't like: document.process.submit();
+	}
+
+	// Moofx code has been adjusted so that it doesn't require Prototype-Lite, but does need these renamed functions from it:
+	var Fx = fx = {};
+
+	Function.prototype.FxBind = function(object) {
+		var __method = this;
+		return function() {
+			return __method.apply(object, arguments);
+		}
+	};
+
+	Fx.Extend = function(destination, source) {
+		for (var property in source) destination[property] = source[property];
+		return destination;
+	};
+
+	Fx.Camelize = function(str) {
+		return str.replace(/-\D/gi, function(match){
+			return match.charAt(match.length - 1).toUpperCase();
+		});
+	};
+
+	Fx.CreateArray = function(array){
+		var nArray = [];
+		for (var i=0;i<array.length;i++) nArray.push(array[i]);
+		return nArray;
+	}
+
+	Fx.GetElement = function() {
+		if (arguments.length == 1) return get$(arguments[0]);
+		var elements = [];
+		Fx.CreateArray(arguments).each(function(el){
+			elements.push(get$(el));
+		});
+		return elements;
+
+		function get$(el){
+			if (typeof el == 'string') el = document.getElementById(el);
+			return el;
+		}
+	};
+
+	Fx.Base = function(){};
+	Fx.Base.prototype = {
+
+		setOptions: function(options){
+			this.options = Fx.Extend({
+				onStart: function(){},
+				onComplete: function(){},
+				transition: Fx.Transitions.sineInOut,
+				duration: 500,
+				unit: 'px',
+				wait: true,
+				fps: 50
+			}, options || {});
+		},
+
+		step: function(){
+			var time = new Date().getTime();
+			if (time < this.time + this.options.duration){
+				this.cTime = time - this.time;
+				this.setNow();
+			} else {
+				setTimeout(this.options.onComplete.FxBind(this, this.element), 10);
+				this.clearTimer();
+				this.now = this.to;
+			}
+			this.increase();
+		},
+
+		setNow: function(){
+			this.now = this.compute(this.from, this.to);
+		},
+
+		compute: function(from, to){
+			var change = to - from;
+			return this.options.transition(this.cTime, from, change, this.options.duration);
+		},
+
+		clearTimer: function(){
+			clearInterval(this.timer);
+			this.timer = null;
+			return this;
+		},
+
+		_start: function(from, to){
+			if (!this.options.wait) this.clearTimer();
+			if (this.timer) return;
+			setTimeout(this.options.onStart.FxBind(this, this.element), 10);
+			this.from = from;
+			this.to = to;
+			this.time = new Date().getTime();
+			this.timer = setInterval(this.step.FxBind(this), Math.round(1000/this.options.fps));
+			return this;
+		},
+
+		custom: function(from, to){
+			return this._start(from, to);
+		},
+
+		set: function(to){
+			this.now = to;
+			this.increase();
+			return this;
+		},
+
+		hide: function(){
+			return this.set(0);
+		},
+
+		setStyle: function(e, p, v){
+			if (p == 'opacity'){
+				if (v == 0 && e.style.visibility != "hidden") e.style.visibility = "hidden";
+				else if (e.style.visibility != "visible") e.style.visibility = "visible";
+				if (window.ActiveXObject){
+					if (!e.currentStyle.hasLayout)
+						e.style.zoom = "1"; // Give it layout
+					e.style.filter = "alpha(opacity=" + v*100 + ")";
+				}
+				e.style.opacity = v;
+			} else e.style[p] = v+this.options.unit;
+		}
+
+	};
+
+	Fx.Class = {
+		create: function() {
+			return function() {
+				this.initialize.apply(this, arguments);
+			}
+		}
+	};
+
+	Fx.Style = Fx.Class.create();
+	Fx.Style.prototype = Fx.Extend(new Fx.Base(), {
+
+		initialize: function(el, property, options){
+			this.element = Fx.GetElement(el);
+			this.setOptions(options);
+			this.property = Fx.Camelize(property);
+		},
+
+		increase: function(){
+			this.setStyle(this.element, this.property, this.now);
+		}
+
+	});
+
+	Fx.Styles = Fx.Class.create();
+	Fx.Styles.prototype = Fx.Extend(new Fx.Base(), {
+
+		initialize: function(el, options){
+			this.element = Fx.GetElement(el);
+			this.setOptions(options);
+			this.now = {};
+		},
+
+		setNow: function(){
+			for (p in this.from) this.now[p] = this.compute(this.from[p], this.to[p]);
+		},
+
+		custom: function(obj){
+			if (this.timer && this.options.wait) return;
+			var from = {};
+			var to = {};
+			for (p in obj){
+				from[p] = obj[p][0];
+				to[p] = obj[p][1];
+			}
+			return this._start(from, to);
+		},
+
+		increase: function(){
+			for (var p in this.now) this.setStyle(this.element, p, this.now[p]);
+		}
+
+	});
+
+	//Transitions (c) 2003 Robert Penner (http://www.robertpenner.com/easing/), BSD License.
+
+	Fx.Transitions = {
+		linear: function(t, b, c, d) { return c*t/d + b; },
+		sineInOut: function(t, b, c, d) { return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b; }
+	};
+
+	// End of Moofx
+
+	var ws = {
+		Version: 1.20121019
+	};
+
+	ws.Browser = {
+		isIE: document.all && !window.opera,
+		isCSS3IE: document.all && !window.opera && /Trident/i.test(navigator.userAgent) && !/Trident\/4\./i.test(navigator.userAgent),
+		isOldIE: document.all && !window.opera && /MSIE [56]/.test(navigator.userAgent) && !/Trident/i.test(navigator.userAgent),
+		isMobileSafari: /AppleWebKit\/.+Mobile\//.test(navigator.userAgent),
+		isIPhone: /(iPhone|iPod)/.test(navigator.userAgent),
+		isIPad: /(iPad)/.test(navigator.userAgent),
+		isSafariWithTransitions: /WebKit\/\d+/i.test(navigator.userAgent) && (parseInt(navigator.userAgent.match(/WebKit\/(\d+)/i)[1]) >= 531) && !/OS\sX\s10_[45]/i.test(navigator.userAgent),
+		isChrome: /Chrome\//.test(navigator.userAgent),
+		isChromeWithTransitions: /Chrome\//.test(navigator.userAgent) && /OS\sX/i.test(navigator.userAgent) && !/OS\sX\s10_[45]/i.test(navigator.userAgent),
+		isOldFirefox: /Firefox[\/\s](1\.|2\.|3\.0)/.test(navigator.userAgent),
+		isLegacyMode: !/CSS/i.test(document.compatMode)
+	};
+
+	ws.Calc = {
+		/* 
+		 * Get the current style of an element:
+		 * http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
+		 */
+		ElementStyle: function(oElm, strCssRule)
+		{
+			var strValue = "";
+			if (document.defaultView && document.defaultView.getComputedStyle)
+			{
+				strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
+			}
+			else if (oElm.currentStyle)
+			{
+				strCssRule = strCssRule.replace(/\-(\w)/g, function(strMatch, p1)
+				{
+					return p1.toUpperCase();
+				});
+				strValue = oElm.currentStyle[strCssRule];
+			}
+			return strValue;
+		},
+		/*
+		 * Get next highest Z-index
+		 */
+		NextHighestZindex: function()
+		{
+			var highestIndex = 0;
+			var currentIndex = 0;
+
+			var elmArray = document.getElementsByTagName('*');
+
+			for (var i = 0; i < elmArray.length; i++)
+			{
+				currentIndex = parseFloat(ws.Calc.ElementStyle(elmArray[i], "z-index"));
+
+				if (!isNaN(currentIndex) && (currentIndex > highestIndex) && currentIndex < 99999999)
+					highestIndex = currentIndex;
+			}
+			return (highestIndex + 1);  
+		}
+	};
+
+	/*
+	 * Dialog initialization
+	 */
+	ws.Dialog = function()
+	{
+		if (ws.Dialog.initialized)
+			return;
+
+		if (ws.Browser.isIE && !ws.Browser.isCSS3IE)
+		{
+			if (!document.namespaces.v)
+				document.namespaces.add("v", "urn:schemas-microsoft-com:vml");
+
+			var vmlCSS = document.createStyleSheet();
+			vmlCSS.addRule("v\\:roundrect", "behavior: url(#default#VML)");
+			vmlCSS.addRule("v\\:roundrect", "background-color: transparent !important");
+			vmlCSS.addRule("v\\:roundrect", "border: none !important");
+		}
+		ws.Dialog.initialized = true;
+	};
+
+	ws.Dialog.prototype = {
+		defaultBackgroundColor: "#003049",
+		/*
+		 * Creates and populates a in-DOM popup dialog
+		 * Pass an HTML color as a string as the 7th parameter to change the default background color
+		 */
+		Show: function(msgTitle, msgInfo, msgButton, widthOfPopup, heightOfPopup, onCloseFn)
+		{
+			this.widthOfPopup = widthOfPopup;
+			this.heightOfPopup = heightOfPopup;
+
+			var backgroundColor = this.defaultBackgroundColor;
+			if (arguments.length == 7)
+				backgroundColor = arguments[6];
+
+			// Setup inner content
+			this.contentDiv = document.createElement("div");
+			this.contentDiv.className = "ws_dialog_content";
+			this.contentDiv.style.position = "relative";
+			this.contentDiv.style.width = this.widthOfPopup + "px";
+			this.contentDiv.style.height = this.heightOfPopup + "px";
+			this.contentDiv.style.marginLeft = "auto";
+			this.contentDiv.style.marginRight = "auto";
+
+			var contentElm;
+			if (ws.Browser.isIE && !ws.Browser.isCSS3IE)
+			{
+				// An added benefit to using VML is that the text won't look weird in fade-ins and outs on IE6!
+				contentElm = document.createElement("v:roundrect");
+				contentElm.arcsize = ".03";
+				contentElm.fillcolor = "#464646";
+				contentElm.strokecolor = "#ffffff";
+				contentElm.strokeweight = "2px";
+			}
+			else
+			{
+				contentElm = document.createElement("div");
+			}
+
+			contentElm.style.width = this.widthOfPopup + "px";
+			contentElm.style.height = this.heightOfPopup + "px";
+			contentElm.style.fontFamily = "arial, helvetica, sans-serif";
+			contentElm.style.fontSize = "14px";
+			contentElm.style.display = "block";
+			contentElm.style.width = this.widthOfPopup + "px";
+			contentElm.style.height = this.heightOfPopup + "px";
+			contentElm.style.backgroundColor = "#464646";
+			contentElm.style.border = "2px solid #ffffff";
+			contentElm.style.MozBorderRadius = "10px";
+			contentElm.style.webkitBorderRadius = "10px";
+			contentElm.style.borderRadius = "10px";
+			contentElm.innerHTML = '<div style="padding: 30px 30px 20px 30px; text-align: left; color: #ffffff;"><span style="display: block; position: absolute;' + ((ws.Browser.isOldIE && !ws.Browser.isLegacyMode) ? ' ' : 'left: 0px; right: 0px; ') + 'bottom: 30px; width: 100%; cursor: pointer; text-decoration: underline; font-size: 115%; text-align: center;" class="ws_dialog_close_button">' + msgButton + '</span><strong style="display: block; text-align: center;">' + msgTitle + '</strong>' + msgInfo + '</div>';
+
+			this.contentDiv.appendChild(contentElm);
+
+			// Setup the close handler (note that the close button is in our first span, since message content and title follow it.)
+			// Note that we have to store "this" so that we don't lose reference to it (so the hide function knows what to call)
+			var thisDialog = this;
+			this.contentDiv.getElementsByTagName("span")[0].onclick = function()
+			{
+				// Older versions of ws.js didn't have an onclose function
+				if (typeof(onCloseFn) == "function")
+					onCloseFn(this);
+				thisDialog.Hide();
+			};
+
+			this._build(backgroundColor);
+		},
+		/*
+		 * Creates and populates a in-DOM popup dialog, styled with user HTML
+		 * Pass an HTML color as a string as the 5th parameter to change the default background color
+		 */
+		ShowHTML: function(html, widthOfPopup, heightOfPopup, onCloseFn)
+		{
+			this.widthOfPopup = widthOfPopup;
+			this.heightOfPopup = heightOfPopup;
+
+			var backgroundColor = this.defaultBackgroundColor;
+			if (arguments.length == 5)
+				backgroundColor = arguments[4];
+
+			// Setup inner content
+			this.contentDiv = document.createElement("div");
+			this.contentDiv.className = "ws_dialog_content ws_dialog_custom_content";
+			this.contentDiv.style.position = "relative";
+			this.contentDiv.innerHTML = html;
+			this.contentDiv.style.width = this.widthOfPopup + "px";
+			this.contentDiv.style.height = this.heightOfPopup + "px";
+			this.contentDiv.style.marginLeft = "auto";
+			this.contentDiv.style.marginRight = "auto";
+
+			var thisDialog = this;
+			var contentDivSpans = this.contentDiv.getElementsByTagName("*");  // EXP: don't limit to just spans anymore
+			for (var i = 0; i < contentDivSpans.length; i++)
+			{
+				if (/ws_dialog_close_button/.test(contentDivSpans[i].className))
+				{
+					contentDivSpans[i].onclick = function()
+					{
+						onCloseFn(this);  // Call on close function provided by user
+						thisDialog.Hide();
+						return false; // Cancel the event
+					};
+				}
+			}
+
+			this._build(backgroundColor);
+		},
+		/*
+		 * Begins removal of an in-DOM popup dialog
+		 */
+		Hide: function()
+		{
+			 // Prevent hide function from being called twice (i.e. user double-clicks background)
+			if (this.hideCalled)
+				return;
+
+			this.hideCalled = true;
+
+			window.onresize = this._previousOnResize;
+			// EXP: Fixed missing:
+			window.onscroll = this._previousOnScroll;
+
+			// See if Fx library is loaded		
+			if (typeof(Fx) == "object")
+			{
+				this.backgroundDiv.wsFx = new Fx.Style(this.backgroundDiv, 'opacity', {duration: 300});
+				this.backgroundDiv.wsFx._start(0.5, 0.01);
+
+				var thisDialog = this;
+				this.popupDiv.wsFx = new Fx.Style(this.popupDiv, 'opacity', {duration: 300, onComplete: function()
+				{
+					// We would lose reference to the dialog during callback functions too, so store "this" in thisDialog
+					thisDialog._hideComplete();
+				}});
+				this.popupDiv.wsFx._start(1.0, 0.01);
+			}
+			else if (typeof(Effect) == "object")
+			{
+				// If Scriptaculous Effects are loaded
+				this.backgroundDiv.wsFx = new Effect.Fade(this.backgroundDiv, {from: 0.5, to: 0.01, duration: 0.3});
+				var thisDialog = this;
+				this.popupDiv.wsFx = new Effect.Fade(this.popupDiv, {from: 1.0, to: 0.01, duration: 0.3, afterFinish: function()
+				{
+					// We would lose reference to the dialog during callback functions too, so store "this" in thisDialog
+					thisDialog._hideComplete();
+				}});		
+			}
+			else
+			{
+				this._hideComplete();
+			}
+		},
+		/*
+		 * Removes an in-DOM popup dialog
+		 */
+		_hideComplete: function()
+		{
+			this.backgroundDiv.parentNode.removeChild(this.backgroundDiv);
+			this.popupDiv.parentNode.removeChild(this.popupDiv);
+			if (ws.Browser.isOldIE && this.hiddenSelects)
+			{
+				for (var i = 0; i < this.hiddenSelects.length; i++)
+					this.hiddenSelects[i].style.visibility = "visible";
+			}
+			if (ws.Browser.isLegacyMode && ws.Browser.isIE)
+			{
+				document.body.scroll = "yes"; // Re-enable scrolling in IE
+				// REM: document.body.style.marginRight = (parseInt(document.body.currentStyle.marginRight) - this.scrollBarSize) + "px";
+			}
+
+			document.getElementsByTagName("html")[0].style.overflow = "auto";
+		},
+		/*
+		 * Computes scrollbar widths. Based on code from:
+		 * http://www.alexandre-gomes.com/?p=115
+		 */
+		_getScrollBarWidth: function()
+		{
+			var inner = document.createElement("div");
+			inner.style.width = "100%";
+			inner.style.height = "200px";
+			inner.style.margin = "0px";
+			inner.style.padding = "0px";
+			inner.style.border = "0px";
+
+			var outer = document.createElement("div");
+			outer.style.position = "absolute";
+			outer.style.top = "0px";
+			outer.style.left = "0px";
+			outer.style.visibility = "hidden";
+			outer.style.width = "200px";
+			outer.style.height = "150px";
+			outer.style.overflow = "hidden";
+			outer.style.margin = "0px";
+			outer.style.padding = "0px";
+			outer.style.border = "0px";
+			outer.appendChild(inner);
+
+			document.body.appendChild(outer);
+			var w1 = inner.offsetWidth;
+			outer.style.overflow = "scroll";
+			var w2 = inner.offsetWidth;
+			if (w1 == w2)
+				w2 = outer.clientWidth;
+
+			document.body.removeChild(outer);
+
+			return (w1 - w2);
+		},
+		/*
+		 * Sizes or resizes the dialog to the browser window
+		 */
+		_sizeDialog: function()
+		{
+			var marginOffset = 0;
+
+			var browserViewportHeight;
+			var browserViewportWidth;
+			if (ws.Browser.isIE && ws.Browser.isLegacyMode)
+			{
+				browserViewportHeight = document.body.clientHeight;  // Quirksmode IE <9
+				browserViewportWidth = document.body.clientWidth;  // Quirksmode IE <9
+			}
+			else if (ws.Browser.isIE && !ws.Browser.isCSS3IE)
+			{
+				browserViewportHeight = document.documentElement.clientHeight;  // Strict IE <9
+				browserViewportWidth = document.documentElement.clientWidth;  // Strict IE <9
+			}
+			else
+			{
+				browserViewportHeight = window.innerHeight;
+				browserViewportWidth = window.innerWidth;
+			}
+
+			// Page height will never be less than window height:
+			var pageHeight = Math.max(browserViewportHeight, document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+			var pageWidth = Math.max(browserViewportWidth, document.body.scrollWidth, document.documentElement.scrollWidth, document.body.offsetWidth, document.documentElement.offsetWidth, document.body.clientWidth, document.documentElement.clientWidth);
+
+			if (!ws.Browser.isIE || ws.Browser.isCSS3IE)
+			{
+				var hScroll = ((ws.Browser.isIE && !(ws.Browser.isCSS3IE && !ws.Browser.isLegacyMode)) ? document.scrollLeft : window.pageXOffset);
+				var vScroll = ((ws.Browser.isIE && !(ws.Browser.isCSS3IE && !ws.Browser.isLegacyMode)) ? document.scrollTop : window.pageYOffset);
+				var scrolledToTop = false;
+
+				// Need to determine if popup is taller than visible portion of screen.
+				if (this.heightOfPopup > browserViewportHeight)
+				{
+					// If so disable page scroll, let popup contents scroll instead
+					this.popupDiv.style.overflowY = "auto";
+					this.popupDiv.style.maxHeight = browserViewportHeight + "px";
+					this.popupDiv.style.maxWidth = browserViewportWidth + "px";
+					window.scroll(0, 0);  // Scroll to top
+					scrolledToTop = true;
+					document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+				}
+				else
+				{
+					document.getElementsByTagName("html")[0].style.overflowY = "auto";
+					this.popupDiv.style.overflowY = "visible";
+				}
+
+				// Need to determine if popup is wider than visible portion of screen.
+				if (this.widthOfPopup > browserViewportWidth)
+				{
+					// If so disable page scroll, let popup contents scroll instead
+					this.popupDiv.style.overflowX = "auto";
+					this.popupDiv.style.maxHeight = browserViewportHeight + "px";
+					this.popupDiv.style.maxWidth = browserViewportWidth + "px";
+					window.scroll(0, 0);  // Scroll to top
+					scrolledToTop = true;
+					document.getElementsByTagName("html")[0].style.overflowX = "hidden";
+				}
+				else
+				{
+					document.getElementsByTagName("html")[0].style.overflowX = "auto";
+					this.popupDiv.style.overflowX = "visible";
+				}
+
+				if (!scrolledToTop)
+					window.scroll(hScroll, vScroll);  // Scroll to previous position (changing scroll on HTML element causes some browsers to scroll to top)
+			}
+			else
+			{
+				// It's IE < 9
+				// Need to determine if popup is bigger than visible portion of screen.
+				if (this.heightOfPopup > browserViewportHeight || this.widthOfPopup > browserViewportWidth)
+				{
+					// If so disable page scroll, let popup contents scroll instead
+					this.popupDiv.style.overflow = "scroll";
+					this.popupDiv.style.height = browserViewportHeight + "px";
+					this.popupDiv.style.width = browserViewportWidth + "px";
+
+					if (this.widthOfPopup > browserViewportWidth)
+					{
+						this.popupDiv.style.height = browserViewportHeight - (this.scrollBarWidth + parseInt(document.body.currentStyle.marginTop) + parseInt(document.body.currentStyle.marginBottom)) + "px";
+						window.onscroll = function() { };
+					}
+
+					// If we weren't already scrolled to the top, move up the background div
+					if (ws.Browser.isLegacyMode)
+						this.backgroundDiv.style.marginTop = "0px";
+
+					window.scroll(0, 0);  // Scroll to top		
+					document.getElementsByTagName("html")[0].style.overflow = "hidden";
+				}
+				else
+				{
+					// Reset scrolling to HTML:
+					window.onscroll = window.onresize;
+					document.getElementsByTagName("html")[0].style.overflow = "auto";
+					this.popupDiv.style.overflow = "hidden";
+				}
+			}
+
+			// Set background div height and calculate margin offset:
+			if (ws.Browser.isMobileSafari)
+			{
+				this.backgroundDiv.style.width = browserViewportWidth + "px";
+				this.backgroundDiv.style.height = browserViewportHeight + window.pageYOffset + "px";
+
+				// We have to factor in scroll offset on Mobile Safari since there is no CSS fixed positioning
+				marginOffset = ((browserViewportHeight - this.heightOfPopup) / 2) + window.pageYOffset;
+			}
+			else if (ws.Browser.isLegacyMode && ws.Browser.isIE)
+			{
+				this.backgroundDiv.style.width = browserViewportHeight + "px";
+
+				// If page is scrolled down and refreshed in quirksmode IE, the page scrolls without the bg
+				// Add in height for a possible horizontal scroll bar:
+				this.backgroundDiv.style.height = (browserViewportHeight + document.body.scrollTop + this.scrollBarWidth) + "px";
+
+				marginOffset = ((browserViewportHeight - this.heightOfPopup) / 2) + document.body.scrollTop;
+			}
+			else if (!ws.Browser.isCSS3IE && ws.Browser.isIE)
+			{
+				// We have to factor in scroll offset on old IE since there is no CSS fixed positioning
+				marginOffset = ((browserViewportHeight - this.heightOfPopup) / 2) + document.documentElement.scrollTop;
+
+				// Include page margins on Old IE:
+				this.backgroundDiv.style.width = pageWidth + "px"; //document.body.clientWidth + parseInt(document.body.currentStyle.marginLeft) + parseInt(document.body.currentStyle.marginRight) + "px";
+
+				this.backgroundDiv.style.height = pageHeight + "px";
+			}
+			else
+			{
+				marginOffset = ((browserViewportHeight - this.heightOfPopup) / 2);
+			}
+
+			if (marginOffset < 0)
+				marginOffset = 0;
+
+			// Just in case for other browsers and needed for IE 7:
+			if (this.backgroundDiv.offsetHeight < pageHeight || this.backgroundDiv.offsetHeight < browserViewportHeight)
+				this.backgroundDiv.style.height = Math.max(pageHeight, browserViewportHeight) + "px";
+			if (this.backgroundDiv.offsetWidth < pageWidth || this.backgroundDiv.offsetWidth < browserViewportWidth)
+				this.backgroundDiv.style.width = Math.max(pageWidth, browserViewportWidth) + "px";
+
+			// Set the size of the Popup Div, partially based on margin offset:
+			if ((ws.Browser.isIE && !ws.Browser.isCSS3IE) || (ws.Browser.isCSS3IE && ws.Browser.isLegacyMode))
+			{
+				if (ws.Browser.isLegacyMode)
+				{
+					// The window cannot be scrolled in legacy mode:
+					window.scroll(0, 0);  // Scroll to top	
+					this.backgroundDiv.style.marginTop = "0px";
+					this.popupDiv.style.width = browserViewportWidth + "px";
+					this.popupDiv.style.height = Math.max((browserViewportHeight - marginOffset), 0) + "px";
+				}
+				else
+				{
+					this.popupDiv.style.height = browserViewportHeight + "px";
+					this.popupDiv.style.width = browserViewportWidth + "px";
+					this.popupDiv.style.overflow = "auto";
+
+					// We need to scroll horizontally
+					if (this.widthOfPopup > browserViewportWidth)
+					{
+						// Also need to set the height here, otherwise scrollbar will be out of sight!
+						this.popupDiv.style.height = Math.max(browserViewportHeight - marginOffset, 0) + "px";
+					}
+				}
+			}
+			this.popupDiv.style.marginTop = marginOffset + "px";
+		},
+		/*
+		 * Builds the elements for an in-DOM popup dialog
+		 */
+		_build: function()
+		{
+			var backgroundColor = this.defaultBackgroundColor;
+			if (arguments.length == 1)
+				backgroundColor = arguments[0];
+
+			// Create a translucent background div to go behind popup div
+			this.backgroundDiv = document.createElement("div");
+			this.backgroundDiv.style.top = "0px";
+			this.backgroundDiv.style.right = "0px";
+			this.backgroundDiv.style.bottom = "0px";	
+			this.backgroundDiv.style.left = "0px";
+			this.backgroundDiv.style.backgroundColor = backgroundColor;
+			this.backgroundDiv.style.opacity = "0.01";
+			this.backgroundDiv.style.filter = "alpha(opacity=1)";
+
+			// Make sure it is above other elements:
+			var nextZindex = 9998;
+			if (ws.Calc)
+				nextZindex = ws.Calc.NextHighestZindex();
+			this.backgroundDiv.style.zIndex = nextZindex;
+
+			this.backgroundDiv.className = "ws_dialog_background";
+
+			// Create the popup div
+			this.popupDiv = document.createElement("div");
+			this.popupDiv.style.marginLeft = "auto";
+			this.popupDiv.style.marginRight = "auto";
+			this.popupDiv.style.textAlign = "center";
+			this.popupDiv.style.top = "0px";
+			this.popupDiv.style.right = "0px";
+			this.popupDiv.style.bottom = "0px";
+			this.popupDiv.style.left = "0px";
+			this.popupDiv.style.zIndex = this.backgroundDiv.style.zIndex + 1; // Make sure it is above background
+			this.popupDiv.className = "ws_dialog_popup";
+			this.popupDiv.style.opacity = "0.01";
+			this.popupDiv.style.filter = "alpha(opacity=1)";
+
+			this.contentDiv.style.outline = "none";
+
+			this.scrollBarWidth = this._getScrollBarWidth();
+
+			// Perform some browser-specific things, letting all IE < 9 (or 9+ quirks) and Mobile Safari see this code path:
+			if ((ws.Browser.isIE && !ws.Browser.isCSS3IE) || (ws.Browser.isCSS3IE && ws.Browser.isLegacyMode) || ws.Browser.isMobileSafari)
+			{
+				this.backgroundDiv.style.position = "absolute";
+				this.popupDiv.style.position = "absolute";
+
+				if (ws.Browser.isMobileSafari)
+				{
+					this.popupDiv.style.width = "100%";
+					this.popupDiv.style.height = "100%";  // TODO: I THINK THIS SHOULD BE OK FOR MOB SAFARI
+					this.popupDiv.style.minWidth = this.widthOfPopup + "px";  // For Mobile Safari only!
+					this.popupDiv.style.minHeight = this.heightOfPopup + "px";
+				}
+
+				if (ws.Browser.isOldIE)
+				{
+					// Need to hide all the SELECT elements in the DOM, since IE6 has a Z-order bug:
+					this.hiddenSelects = Array();
+					var selectsToHide = document.getElementsByTagName("select");
+
+					for (var i = 0; i < selectsToHide.length; i++)
+					{
+						if (selectsToHide[i].style.visibility.toLowerCase() != "hidden")
+						{
+							selectsToHide[i].style.visibility = "hidden";
+							this.hiddenSelects.push(selectsToHide[i]);
+						}	
+					}
+				}
+
+				if (ws.Browser.isLegacyMode && ws.Browser.isIE)
+				{
+					// Removed due to compatibility issues, and a slight content shift on quirksmode IE is not worth worrying over:
+					// REM: var sizeWithScrollBar = document.body.clientWidth;
+
+					// Instead of window.scroll(0, 0) set margin on background to (quirksmode) scroll top
+					// Account for possibility of horizontal scrollbar disappearing and shifting contents down:
+					this.backgroundDiv.style.marginTop = document.body.scrollTop - this.scrollBarWidth + "px";
+					document.body.scroll = "no";
+
+					// REM: this.scrollBarSize = document.body.clientWidth - sizeWithScrollBar;  // Compute scroll bar width
+					// REM: // Adjust margin to compensate for change
+					// REM: document.body.style.marginRight = (parseInt(document.body.currentStyle.marginRight) + this.scrollBarSize) + "px";
+				}
+
+				// Need to run this now too:
+				this._sizeDialog();  // we will run it again later in this function too; this is intentional
+			}
+			else
+			{
+				// Set top margin so that image displays centered, unless window is too short
+				this.backgroundDiv.style.position = "fixed";
+				this.popupDiv.style.position = "fixed";
+			}
+
+			document.body.appendChild(this.backgroundDiv);
+			this.popupDiv.appendChild(this.contentDiv);
+			document.body.appendChild(this.popupDiv);
+			this._sizeDialog();  // Size and position the dialog
+
+			// Setup window onresize event to handle popup position and background size on browser size change:
+			if (typeof(window.onresize) == "function")
+				this._previousOnResize = window.onresize;
+			if (typeof(window.onscroll) == "function")
+				this._previousOnScroll = window.onscroll;
+			var thisDialog = this;
+			window.onresize = function()
+			{
+				thisDialog._previousOnResize();
+				thisDialog._sizeDialog();
+			};
+
+			// If content is taller than page, don't setup scroll to do resize:
+			if (ws.Browser.isIE && (document.body.clientHeight > this.heightOfPopup) && !(ws.Browser.isCSS3IE && !ws.Browser.isLegacyMode))
+				window.onscroll = window.onresize;
+
+			// This way scroll wheel is focused correctly for IE, but still a good idea other browsers:
+			// IE jumps the page lower/higher if we set focus to an element not completely on the screen:
+			this.contentDiv.focus();
+
+			// See if Fx library is loaded:
+			if (typeof(Fx) == "object")
+			{
+				this.backgroundDiv.wsFx = new Fx.Style(this.backgroundDiv, 'opacity', {duration: 750});
+				this.backgroundDiv.wsFx._start(0.01, 0.5);
+				this.popupDiv.wsFx = new Fx.Style(this.popupDiv, 'opacity', {duration: 500});
+				this.popupDiv.wsFx._start(0.01, 1.0);
+			}
+			else if (typeof(Effect) == "object")
+			{
+				// If Scriptaculous Effects are loaded
+				this.backgroundDiv.wsFx = new Effect.Appear(this.backgroundDiv, {from: 0.01, to: 0.5, duration: 0.75});
+				this.popupDiv.wsFx = new Effect.Appear(this.popupDiv, {from: 0.01, to: 1.0, duration: 0.5});		
+			}
+			else
+			{
+				this.backgroundDiv.style.opacity = "0.5";
+				this.backgroundDiv.style.filter = "alpha(opacity=50)";
+				this.popupDiv.style.opacity = "1";
+				this.popupDiv.style.filter = "alpha(opacity=100)";
+			}
+		},
+		/* Used for storing existing onresize functions */
+		_previousOnResize: function() { },
+		/* Used for storing existing onscroll functions */
+		_previousOnScroll: function() { }
+	};
+	/*
+	 * Cookie handling:
+	 */
+	ws.Cookie = {};
+
+	ws.Cookie = {
+		Get: function(cookieName)
+		{
+			if (document.cookie.length > 0)
+			{
+				var cookieStart = document.cookie.indexOf(cookieName + "=");
+				if (cookieStart != -1)
+				{
+					cookieStart += cookieName.length + 1;
+					var cookieEnd = document.cookie.indexOf(";", cookieStart);
+					if (cookieEnd == -1)
+						cookieEnd = document.cookie.length;
+					return unescape(document.cookie.substring(cookieStart, cookieEnd));
+				}
+			}
+			return "";
+		},
+		Set: function(name, value, time, format)
+		{
+			var expireDate = new Date();
+
+			format = format.toLowerCase();
+			if (format == "m")
+				expireDate.setMinutes(expireDate.getMinutes() + parseInt(time));
+			else if (format == "h")
+				expireDate.setHours(expireDate.getHours() + parseInt(time));
+			else
+				expireDate.setDate(expireDate.getDate() + parseInt(time));
+
+			document.cookie = name + "=" + value + ";expires=" + expireDate.toUTCString() + ";path=/";
+		}
+	};
+
+	/* Lite-version of ws.Test */
+	ws.Test = {
+		/*
+		 * Test for empty input. This is the only testing function that auto-trims input.
+		 */
+		IsEmpty: function(str)
+		{
+			if (str.replace(/\s*/g, "").length == 0)
+				return true;
+			return false;
+		},
+		/*
+		 * Test for a valid email
+		 */
+		ValidEmail: function(str)
+		{
+			return (/^([\w\-\+]+)(\.[\w\-\+]+)*@([\w\-]+)(\.[\w\-]+)+$/.test(str));
+		}
+	}
+
+}//]]>  
+
+</script>
